@@ -1,0 +1,21 @@
+﻿<Window x:Class="carservice_projekt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CarService Manager" Height="450" Width="800" Background="#1F1F1F" WindowStartupLocation="CenterScreen">
+    
+    <StackPanel Margin="10" Background="#2B2B2B" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+        <TextBlock Text="{Binding Titel}"
+           FontSize="30"
+           Margin="0,0,0,70"
+           HorizontalAlignment="Center"
+           Foreground="LightSteelBlue"/>
+
+        <Button Content="Menü" Click="Button_Click" FontSize="20" Margin="0,0,0,40"
+                HorizontalAlignment="Center" Height="50" Width="180" Background="SteelBlue" Foreground="White"/>
+        
+        <Button Content="Exit" FontSize="20" Margin="0" HorizontalAlignment="Center"
+                Height="50" Width="180" Background="#CC3333" Foreground="White"/>
+        
+    </StackPanel>
+</Window>
