@@ -16,9 +16,18 @@ namespace carservice_projekt.Models
 
         public string Status { get; set; }
 
+        // Event
+        public event EventHandler WartungGespeichert;
+
         public decimal BerechneKostenMitSteuer()
         {
             return Kosten * 1.2m;
+        }
+
+        // Methode löst Event aus
+        public void Speichern()
+        {
+            WartungGespeichert?.Invoke(this, EventArgs.Empty);
         }
     }
 }
