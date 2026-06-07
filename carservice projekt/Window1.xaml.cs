@@ -24,6 +24,8 @@ namespace carservice_projekt
             InitializeComponent();
 
             LadeFahrzeuge();
+
+           
         }
 
         private void LadeFahrzeuge()
@@ -54,6 +56,9 @@ namespace carservice_projekt
             }
 
             dgFahrzeuge.ItemsSource = fahrzeuge;
+
+            DateiSpeicher speicher = new DateiSpeicher();
+            speicher.Speichern(fahrzeuge);
         }
 
 
@@ -64,5 +69,7 @@ namespace carservice_projekt
             this.Close();
             
         }
+
+       
     }
 }

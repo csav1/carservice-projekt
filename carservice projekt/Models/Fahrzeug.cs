@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace carservice_projekt.Models
 {
-    internal class Fahrzeug
+    public class Fahrzeug
     {
         public string Marke { get; set; }
 

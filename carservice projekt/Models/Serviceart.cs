@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace carservice_projekt.Models
 {
-    internal class Serviceart
+    public class Serviceart
     {
         public string Name { get; set; }
 
