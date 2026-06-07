@@ -1,4 +1,5 @@
-﻿using System;
+﻿using carservice_projekt.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,16 @@ namespace carservice_projekt
         public Window1()
         {
             InitializeComponent();
+
+            List<Fahrzeug> fahrzeuge = new List<Fahrzeug>()
+    {
+        new Fahrzeug { Marke="Mercedes-Benz", Modell="C220" },
+        new Fahrzeug { Marke="BMW", Modell="3er" },
+        new Fahrzeug { Marke="Audi", Modell="A4" },
+        new Fahrzeug { Marke="Volkswagen", Modell="Passat" }
+    };
+
+            dgFahrzeuge.ItemsSource = fahrzeuge;
         }
 
 

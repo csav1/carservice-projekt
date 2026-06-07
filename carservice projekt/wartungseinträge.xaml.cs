@@ -45,8 +45,8 @@ namespace carservice_projekt
                 return;
             }
 
-            
-            MessageBox.Show($"Gespeichert: {marke} {modell} ({baujahr}) - {kennzeichen}");
+
+            lblStatus.Content = "Fahrzeug erfolgreich gespeichert!";
 
             txtMarke.Clear();
 

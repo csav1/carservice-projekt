@@ -46,7 +46,7 @@ namespace carservice_projekt
                     while (reader.Read())
                     {
                         string marke = reader["Marke"].ToString();
-                        MessageBox.Show(marke);
+                        
                     }
                 }
 
