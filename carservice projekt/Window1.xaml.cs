@@ -35,36 +35,47 @@ namespace carservice_projekt
             string connectionString =
                 @"Server=.\SQLEXPRESS;Database=CarServiceDB;Trusted_Connection=True;";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-
-                string sql = "SELECT Marke, Modell FROM Fahrzeuge";
-
-                SqlCommand command = new SqlCommand(sql, connection);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    fahrzeuge.Add(new Fahrzeug
+                    connection.Open();
+
+                    string sql = "SELECT Marke, Modell FROM Fahrzeuge";
+
+                    SqlCommand command = new SqlCommand(sql, connection);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        Marke = reader["Marke"].ToString(),
-                        Modell = reader["Modell"].ToString()
-                    });
+                        fahrzeuge.Add(new Fahrzeug
+                        {
+                            Marke = reader["Marke"].ToString(),
+
+                            Modell = reader["Modell"].ToString()
+                        });
+                    }
                 }
+
+                dgFahrzeuge.ItemsSource = fahrzeuge;
+
+                DateiSpeicher speicher = new DateiSpeicher();
+                speicher.Speichern(fahrzeuge);
             }
 
-            dgFahrzeuge.ItemsSource = fahrzeuge;
-
-            DateiSpeicher speicher = new DateiSpeicher();
-            speicher.Speichern(fahrzeuge);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fehler beim Laden der Fahrzeuge:\n" + ex.Message);
+            }
         }
+
 
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             wartungseinträge fahrzeugview = new wartungseinträge();
+
             fahrzeugview.Show();
             this.Close();
             
