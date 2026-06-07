@@ -1,7 +1,7 @@
 ﻿<Window x:Class="carservice_projekt.einträge_anzeige"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Alle Wartungseinträge" Height="500" Width="1050" WindowStartupLocation="CenterScreen"
+        Title="Alle Wartungseinträge" MinHeight="500" MinWidth="850" ResizeMode="CanResize" WindowStartupLocation="CenterScreen"
         Background="#FF222E50">
 
     <Grid Margin="25">

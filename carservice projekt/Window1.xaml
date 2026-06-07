@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
        Title="Dashboard"
-        Height="750"
-        Width="850"
+       MinHeight="550" MinWidth="850"
+        ResizeMode="CanResize"
         Background="#2A2A2A"
         WindowStartupLocation="CenterScreen">
 
