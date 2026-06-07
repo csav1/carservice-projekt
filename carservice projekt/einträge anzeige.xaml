@@ -51,7 +51,8 @@
                     
                     FontSize="16" Width="200" Height="40"
                     
-                    Background="Silver" Margin="0,0,0,10"/>
+                    Background="#364F7B"
+                    Foreground="White" Margin="0,0,0,10"/>
         </StackPanel>
 
     </Grid>

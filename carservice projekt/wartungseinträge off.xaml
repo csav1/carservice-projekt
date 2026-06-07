@@ -1,7 +1,7 @@
 ﻿<Window x:Class="carservice_projekt.wartungseinträge_off"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Wartungseintrag erstellen" MinHeight="550" MinWidth="850" ResizeMode="CanResize" Background="#2D2D2D" WindowStartupLocation="CenterScreen">
+        Title="Wartungseintrag erstellen" MinHeight="550" MinWidth="850" ResizeMode="CanResize" Background="#222E50" WindowStartupLocation="CenterScreen">
     <StackPanel Margin="20">
         <TextBlock Text="Wartungseintrag erstellen" FontSize="26" FontWeight="Bold"
                    Foreground="LightGray" Margin="0,0,0,20" HorizontalAlignment="Center"/>
@@ -43,14 +43,20 @@
         </Grid>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            
+
             <Button Content="Speichern" Click="BtnSpeichern_Click" Width="120" Margin="10"
                     
-                    Background="DarkOliveGreen" Foreground="White"/>
-            
+                    Background="#364F7B"
+                Foreground="White">
+                
+            </Button>
+
             <Button Content="Weiter" Click="Weiter_Click" Width="120" Margin="10"
                     
-                    Background="SteelBlue" Foreground="White"/>
+                    Background="#364F7B"
+                Foreground="White">
+                
+            </Button>
         </StackPanel>
     </StackPanel>
 </Window>

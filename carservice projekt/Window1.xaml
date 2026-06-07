@@ -9,13 +9,12 @@
 
     <StackPanel Margin="30" VerticalAlignment="Center">
 
-        <TextBox Text="Dashboard-View"
-                 FontSize="35"
-                 Margin="0,0,0,60"
-                 HorizontalAlignment="Center"
-                 Foreground="White"
-                 Background="DarkSlateBlue"
-                 BorderThickness="0"/>
+        <TextBlock Text="CarService Dashboard"
+           FontSize="30"
+           FontWeight="Bold"
+           Foreground="#BBCDE5"
+           HorizontalAlignment="Center"
+           Margin="0,0,0,50"/>
 
         <Button Content="Fahrzeuginformationen"
                 ToolTip="Öffnet die Fahrzeugverwaltung"
@@ -24,8 +23,10 @@
                 HorizontalAlignment="Center"
                 Height="55"
                 Width="360"
-                Background="SlateGray"
-                Foreground="White"/>
+                Background="#364F7B"
+                Foreground="White">
+            
+        </Button>
 
         <Button Content="Bearbeitung von Wartungen"
                 ToolTip="Hier können Wartungen erstellt und bearbeitet werden"
@@ -34,8 +35,10 @@
                 HorizontalAlignment="Center"
                 Height="55"
                 Width="360"
-                Background="SteelBlue"
-                Foreground="White"/>
+                Background="#364F7B"
+                Foreground="White">
+            
+        </Button>
 
         <Button Content="Liste der Wartungen"
                 ToolTip="Zeigt alle gespeicherten Wartungen an"
@@ -44,8 +47,10 @@
                 HorizontalAlignment="Center"
                 Height="55"
                 Width="360"
-                Background="DarkSlateGray"
-                Foreground="White"/>
+               Background="#364F7B"
+               Foreground="White">
+            
+        </Button>
 
         <GroupBox Header="Fahrzeuge"
                   Margin="20"
