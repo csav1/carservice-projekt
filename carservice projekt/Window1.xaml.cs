@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace carservice_projekt
 {
@@ -22,13 +23,35 @@ namespace carservice_projekt
         {
             InitializeComponent();
 
-            List<Fahrzeug> fahrzeuge = new List<Fahrzeug>()
-    {
-        new Fahrzeug { Marke="Mercedes-Benz", Modell="C220" },
-        new Fahrzeug { Marke="BMW", Modell="3er" },
-        new Fahrzeug { Marke="Audi", Modell="A4" },
-        new Fahrzeug { Marke="Volkswagen", Modell="Passat" }
-    };
+            LadeFahrzeuge();
+        }
+
+        private void LadeFahrzeuge()
+        {
+            List<Fahrzeug> fahrzeuge = new List<Fahrzeug>();
+
+            string connectionString =
+                @"Server=.\SQLEXPRESS;Database=CarServiceDB;Trusted_Connection=True;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT Marke, Modell FROM Fahrzeuge";
+
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    fahrzeuge.Add(new Fahrzeug
+                    {
+                        Marke = reader["Marke"].ToString(),
+                        Modell = reader["Modell"].ToString()
+                    });
+                }
+            }
 
             dgFahrzeuge.ItemsSource = fahrzeuge;
         }
