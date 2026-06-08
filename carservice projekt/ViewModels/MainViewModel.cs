@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using carservice_projekt.Models;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using carservice_projekt.ViewModels;
 
 namespace carservice_projekt.ViewModels
 {
@@ -21,9 +20,17 @@ namespace carservice_projekt.ViewModels
             }
         }
 
+        public ObservableCollection<Fahrzeug> Fahrzeuge { get; set; }
+
         public MainViewModel()
         {
             Titel = "CarService Manager";
+
+            using (var context = new CarServiceContext())
+            {
+                Fahrzeuge = new ObservableCollection<Fahrzeug>(
+                    context.Fahrzeuge.ToList());
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

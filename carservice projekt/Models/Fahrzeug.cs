@@ -8,6 +8,7 @@ namespace carservice_projekt.Models
 {
     public class Fahrzeug
     {
+        public int FahrzeugID { get; set; }
         public string Marke { get; set; }
 
         public string Modell { get; set; }

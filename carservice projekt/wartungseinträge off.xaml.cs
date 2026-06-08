@@ -99,9 +99,13 @@ namespace carservice_projekt
             gespeicherteEinträge.Add(wartung);
 
 
-            MessageBox.Show("Wartung gespeichert");
+            MessageBox.Show(
+            "Die Wartungsdaten wurden erfolgreich gespeichert und stehen nun zur Verfügung.",
+            "Vorgang abgeschlossen",
+                MessageBoxButton.OK,
+            MessageBoxImage.Information);
 
-            
+
             txtmarke.SelectedIndex = -1;
 
             cmbServicearten.SelectedIndex = -1;

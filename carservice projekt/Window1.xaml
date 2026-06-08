@@ -57,6 +57,7 @@
                   Foreground="White">
 
             <DataGrid x:Name="dgFahrzeuge"
+            ItemsSource="{Binding Fahrzeuge}" 
                       AutoGenerateColumns="False"
                       Height="150"
                       ToolTip="Übersicht der gespeicherten Fahrzeuge">

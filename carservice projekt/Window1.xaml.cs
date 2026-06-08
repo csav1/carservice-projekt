@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
+using carservice_projekt.ViewModels;
 
 namespace carservice_projekt
 {
@@ -23,53 +23,28 @@ namespace carservice_projekt
         {
             InitializeComponent();
 
-            LadeFahrzeuge();
-
-           
+            DataContext = new MainViewModel();
         }
 
         private void LadeFahrzeuge()
         {
-            List<Fahrzeug> fahrzeuge = new List<Fahrzeug>();
-
-            string connectionString =
-                @"Server=.\SQLEXPRESS;Database=CarServiceDB;Trusted_Connection=True;";
-
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (var context = new CarServiceContext())
                 {
-                    connection.Open();
+                    var fahrzeuge = context.Fahrzeuge.ToList();
 
-                    string sql = "SELECT Marke, Modell FROM Fahrzeuge";
+                    dgFahrzeuge.ItemsSource = fahrzeuge;
 
-                    SqlCommand command = new SqlCommand(sql, connection);
-
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        fahrzeuge.Add(new Fahrzeug
-                        {
-                            Marke = reader["Marke"].ToString(),
-
-                            Modell = reader["Modell"].ToString()
-                        });
-                    }
+                    DateiSpeicher speicher = new DateiSpeicher();
+                    speicher.Speichern(fahrzeuge);
                 }
-
-                dgFahrzeuge.ItemsSource = fahrzeuge;
-
-                DateiSpeicher speicher = new DateiSpeicher();
-                speicher.Speichern(fahrzeuge);
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Fehler beim Laden der Fahrzeuge:\n" + ex.Message);
             }
         }
-
 
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
